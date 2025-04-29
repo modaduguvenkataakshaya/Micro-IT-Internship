@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="number"], input[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Number Guessing Game</h1>
+        <p>{{ message }}</p>
+        
+        {% if not game_over %}
+        <form method="post">
+            <input type="number" name="guess" placeholder="Enter your guess" min="1" max="100" required>
+            <input type="submit" value="Guess">
+        </form>
+        {% else %}
+        <form method="post">
+            <input type="submit" name="new_game" value="Play Again">
+        </form>
+        {% endif %}
+    </div>
+</body>
+</html>
